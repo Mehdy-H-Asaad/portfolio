@@ -13,7 +13,7 @@ export const ResponsiveNavbar = () => {
 	return (
 		<div className="flex md:hidden">
 			<Sheet>
-				<SheetTrigger asChild>
+				<SheetTrigger>
 					{/* <Button className="bg-golden hover:bg-golden text-black"> */}
 					<IoIosMenu
 						className="block md:hidden text-white cursor-pointer"
@@ -22,13 +22,18 @@ export const ResponsiveNavbar = () => {
 					{/* </Button> */}
 				</SheetTrigger>
 
-				<SheetContent className="bg-black text-white" side={"left" as const}>
+				<SheetContent
+					className="bg-black text-white w-[15rem]"
+					side={"left" as const}
+				>
 					<SheetHeader>
-						<SheetTitle className="text-white mb-10">Navbar</SheetTitle>
+						<SheetTitle className="text-left mb-10 text-xl text-white">
+							Navbar
+						</SheetTitle>
 					</SheetHeader>
 					<div className="grid gap-10 py-4">
 						{navLinks.map(nav => (
-							<SheetClose key={nav.href} asChild>
+							<SheetClose key={nav.id} asChild>
 								<a className="text-white font-[600] link w-fit" href={nav.href}>
 									{nav.title}
 								</a>

@@ -1,22 +1,35 @@
 import { FaGithub, FaUpRightFromSquare } from "react-icons/fa6";
 import { projectsLinks } from "../data";
+import { motion } from "framer-motion";
 
 export const Projects = () => {
 	return (
 		<div className="bg-main-color pt-32" id="projects">
 			<div className="flex flex-col gap-2">
-				<div className="text-blue-color font-[700] text-4xl mx-auto">
+				<motion.div
+					initial={{ opacity: 0, y: 50 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.5 }}
+					viewport={{ once: true }}
+					className="text-blue-color font-[700] text-4xl mx-auto"
+				>
 					Projects
-				</div>
-				<p className="text-white text-xl sm:mx-auto mx-10 text-center">
+				</motion.div>
+				<motion.p
+					initial={{ opacity: 0, y: 50 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.5, delay: 0.2 }}
+					viewport={{ once: true }}
+					className="text-white text-xl sm:mx-auto mx-10 text-center"
+				>
 					Here are some of my projects
-				</p>
+				</motion.p>
 			</div>
 
 			<div className="container">
 				<div className="box grid grid-cols-1 lg:grid-cols-2 gap-10 mt-20">
 					{projectsLinks.map(project => (
-						<div className="flex flex-col text-white">
+						<div key={project.id} className="flex flex-col text-white">
 							<a
 								target={!project.demoLink ? "_self" : "_blank"}
 								href={!project.demoLink ? "#" : project.demoLink}

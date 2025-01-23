@@ -11,7 +11,11 @@ export const Navbar = () => {
 					</a>
 					<div className=" items-center gap-16 hidden md:flex">
 						{navLinks.map(nav => (
-							<a className="text-white font-[600] link" href={nav.href}>
+							<a
+								key={nav.id}
+								className="text-white font-[600] link"
+								href={nav.href}
+							>
 								{nav.title}
 							</a>
 						))}
